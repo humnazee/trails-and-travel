@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add your experience</h1>
+<form action="/travels" method="POST">
+  <label for="">Name:</label>
+  <input type="text" name="name">
+
+  <label for="">Tittle:</label>
+  <input type="text" name="title">
+
+  <label for="">Image URL:</label>
+  <input type="text" name="image_url">
+
+  <label for="">Location:</label>
+  <input type="text" name="location">
+
+  <label for="">Description:</label>
+  <input type="text" name="description">
+
+  <button>POST</button>
+</form>
+{% endblock %}
+
+
