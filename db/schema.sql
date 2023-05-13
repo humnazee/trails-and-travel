@@ -2,11 +2,10 @@ CREATE DATABASE travel_app
 
 CREATE TABLE travels(
     id SERIAL PRIMARY KEY,
-    name TEXT
-    title TEXT
-    image_url TEXT
-    location TEXT
-    exp
+    name TEXT,
+    title TEXT,
+    image_url TEXT,
+    location TEXT,
     description TEXT
 );
 
@@ -29,6 +28,6 @@ CREATE TABLE likes(
 CREATE TABLE comments(
   id SERIAL PRIMARY KEY,
   user_id INTEGER,
-  travel_id INTEGER
+  travel_id INTEGER,
   comments TEXT
 );

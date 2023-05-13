@@ -11,7 +11,7 @@
     <button>Log out</button>
   </form>
 
-  <a href="/templates/travels/new.html">Upload</a>
+  <a href="/travels/new">Upload</a>
 </section>
 
 <section class="travels">
@@ -30,6 +30,16 @@
         <form action="/travels/{{ travel['id'] }}/likes" method="POST">
           <button>Like</button>
         </form>
+
+        <form action="/travels/{{ travel['id'] }}/comments" method="POST">
+          <button>Comment</button>
+        </form>
+
+        <form action="/travels/{{ travel['id'] }}/Recommendations" method="POST">
+          <button>Recommendation</button>
+        </form>
+
+
       </section>
     </header>
 
