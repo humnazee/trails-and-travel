@@ -1,5 +1,11 @@
 CREATE DATABASE travel_app
 
+CREATE TABLE destinations (
+    id SERIAL PRIMARY KEY,
+    type TEXT,
+    image_url TEXT
+);
+
 CREATE TABLE travels(
     id SERIAL PRIMARY KEY,
     name TEXT,

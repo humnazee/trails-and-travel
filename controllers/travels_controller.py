@@ -16,7 +16,7 @@ def create():
   location = request.form.get('location')
   description = request.form.get('description')
   create_travel(name, title, image_url, location, description)
-  return redirect('/')
+  return redirect('/travels')
 
 def edit(id):
   travel = get_travel(id)
@@ -29,17 +29,17 @@ def update(id):
   location = request.form.get('location')
   description = request.form.get('description')
   update_travel(id, name, title, image_url, location, description)
-  return redirect('/')
+  return redirect('/travels')
 
 def delete(id):
   delete_travel(id)
-  return redirect('/')
+  return redirect('/travels')
 
 def like(id):
   like_travel(id, session['user_id'])
-  return redirect('/')
+  return redirect('/travels')
 
 
 def comment(id):
   comment_travel(id, session['user_id'])
-  return redirect('/')
+  return redirect('/travels')

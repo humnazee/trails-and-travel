@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Trails and Travels</h1>
+
+{% if current_user %}
+<h3>Welcome to Trails and Travels {{ current_user['first_name'] }}</h3>
+
+<section class="controls">
+  <form action="/sessions/delete" method="POST">
+    <button>Log out</button>
+  </form>
+
+  <a href="/destinations/new">Upload</a>
+</section>
+
+<section class="destinations">
+  {% for destination in destinations: %}
+  <section class="destination">
+    <header>
+      <h2>{{ destination['name'] }}</h2>
+
+      <section class="controls">
+        <a href="/destinations/{{ destination['id'] }}/edit">Edit</a>
+        <a href="/travels">Select this type</a>
+
+        <form action="/destinations/{{ destination['id'] }}/delete" method="POST">
+          <button>Delete</button>
+        </form>
+
+
+
+      </section>
+    </header>
+
+    <img src="{{ destination['image_url'] }}" alt="">
+  </section>
+  {% endfor %}
+</section>
+{% else %}
+<a href="/users/new">Sign up</a>
+<a href="/sessions/new">Log in</a>
+{% endif %}
+
+{% endblock %}
