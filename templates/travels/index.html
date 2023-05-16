@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Trails and Travels</h1>
 
 {% if current_user %}
-<h3>Welcome to Trails and Travels {{ current_user['first_name'] }}</h3>
-
+<h1>Welcome to Trails and Travels {{ current_user['first_name'] }}</h1>
 <section class="controls">
   <form action="/sessions/delete" method="POST">
     <button>Log out</button>
@@ -15,35 +13,41 @@
 </section>
 
 <section class="travels">
-  {% for travel in travels: %}
+  {% for travel in travels: %} 
   <section class="travel">
-    <header>
+    
       <h2>{{ travel['name'] }}</h2>
 
-      <section class="controls">
+      <section class="controls"></section>
         <a href="/travels/{{ travel['id'] }}/edit">Edit</a>
 
         <form action="/travels/{{ travel['id'] }}/delete" method="POST">
           <button>Delete</button>
         </form>
 
+
         <form action="/travels/{{ travel['id'] }}/likes" method="POST">
           <button>Like</button>
         </form>
 
         <form action="/travels/{{ travel['id'] }}/comments" method="POST">
-          <button>Comment</button>
+          <button>Insert your Comment</button>
         </form>
+
+        <label for="">Comment:</label>
+        <input type="text" name="Comment" value="{{ travel['comments'] }}">
 
         <form action="/travels/{{ travel['id'] }}/Recommendations" method="POST">
           <button>Recommendation</button>
         </form>
 
-
       </section>
     </header>
 
-    <img src="{{ travel['image_url'] }}" alt="">
+    <img src="{{ travel['image_url'] }}" alt=""><br>
+    
+    <p1>Description:</p1><p>{{ travel['description'] }}</p>
+   
   </section>
   {% endfor %}
 </section>

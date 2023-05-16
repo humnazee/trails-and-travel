@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if current_user %}
+<h1>Discover Hills {{ current_user['first_name'] }}</h1>
+<section class="controls">
+  <form action="/sessions/delete" method="POST">
+    <button>Log out</button>
+  </form>
+
+  <a href="/hills/new">Upload</a>
+</section>
+
+<section class="hills">
+  {% for hill in hills: %} 
+  <section class="hill">
+    
+      <h2>{{ hill['name'] }}</h2>
+
+      <section class="controls"></section>
+        <a href="/hills/{{ hill['id'] }}/edit">Edit</a>
+
+        <form action="/hills/{{ hill['id'] }}/delete" method="POST">
+          <button>Delete</button>
+        </form>
+
+        <form action="/hills/{{ hill['id'] }}/likes" method="POST">
+          <button>Like</button>
+        </form>
+
+        <form action="/hills/{{ hill['id'] }}/comments" method="POST">
+          <button>Insert your Comment</button>
+        </form>
+
+        <label for="">Comment:</label>
+        <input type="text" name="Comment" value="{{ hill['comments'] }}">
+
+        <form action="/hills/{{ hill['id'] }}/Recommendations" method="POST">
+          <button>Recommendation</button>
+        </form>
+
+      </section>
+    </header>
+
+    <img src="{{ hill['image_url'] }}" alt=""><br>
+    <p>{{ hill['title'] }}</p>
+    <p>{{ hill['location'] }}</p>
+    <p1>Description:</p1><p>{{ hill['description'] }}</p>
+   
+  </section>
+  {% endfor %}
+</section>
+{% else %}
+<a href="/users/new">Sign up</a>
+<a href="/sessions/new">Log in</a>
+{% endif %}
+
+{% endblock %}

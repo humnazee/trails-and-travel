@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Edit Iconic Places</h1>
+<form action="/iconics/{{ iconic['id'] }}" method="POST">
+  <label for="">Name:</label>
+  <input type="text" name="name" value="{{ iconic['name'] }}">
+
+  <label for="">Title:</label>
+  <input type="text" name="title" value="{{ iconic['title'] }}">
+
+  <label for="">Image URL:</label>
+  <input type="text" name="image_url" value="{{ iconic['image_url'] }}">
+
+
+  <label for="">Location:</label>
+  <input type="text" name="location" value="{{ iconic['location'] }}">
+
+  <label for="">Description:</label>
+  <input type="text" name="description" value="{{ iconic['description'] }}">
+
+  <button>Update iconic</button>
+</form>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if current_user %}
+<h1>Welcome to Trails and iconics {{ current_user['first_name'] }}</h1>
+<section class="controls">
+  <form action="/sessions/delete" method="POST">
+    <button>Log out</button>
+  </form>
+
+  <a href="/iconics/new">Upload</a>
+</section>
+
+<section class="iconics">
+  {% for iconic in iconics: %} 
+  <section class="iconic">
+    
+      <h2>{{ iconic['name'] }}</h2>
+
+      <section class="controls">
+        <a href="iconics/{{ iconic['id'] }}/edit">Edit</a>
+
+        <form action="/iconics/{{ iconic['id'] }}/delete" method="POST">
+          <button>Delete</button>
+        </form>
+
+        <form action="/iconics/{{ iconic['id'] }}/likes" method="POST">
+          <button>Like</button>
+        </form>
+
+        <form action="/iconics/{{ iconic['id'] }}/comments" method="POST">
+          <button>Insert your Comment</button>
+        </form>
+
+        <label for="">Comment:</label>
+        <input type="text" name="Comment" value="{{ iconic['comments'] }}">
+
+        <form action="/iconics/{{ iconic['id'] }}/Recommendations" method="POST">
+          <button>Recommendation</button>
+        </form>
+
+      </section>
+    </header>
+
+    <img src="{{ iconic['image_url'] }}" alt=""><br>
+    <p>{{ iconic['title'] }}</p>
+    <p>{{ iconic['location'] }}</p>
+    <p1>Description:</p1><p>{{ iconic['description'] }}</p>
+   
+  </section>
+  {% endfor %}
+</section>
+{% else %}
+<a href="/users/new">Sign up</a>
+<a href="/sessions/new">Log in</a>
+{% endif %}
+
+{% endblock %}

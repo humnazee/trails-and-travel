@@ -10,9 +10,9 @@ def new():
   return render_template('destinations/new.html')
 
 def create():
-  type = request.form.get('type')
+  name = request.form.get('name')
   image_url = request.form.get('image_url')
-  create_destination(type, image_url)
+  create_destination(name, image_url)
   return redirect('/')
 
 def edit(id):
@@ -20,9 +20,9 @@ def edit(id):
   return render_template('destinations/edit.html', destination=destination)
 
 def update(id):
-  type = request.form.get('type')
+  name = request.form.get('name')
   image_url = request.form.get('image_url')
-  update_destination(type, image_url, id)
+  update_destination(name, image_url, id)
   return redirect('/')
 
 def delete(id):

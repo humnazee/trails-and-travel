@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+    border: 1px solid red
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:rgb(170, 169, 169);
+
+  }
+  
+.destinations {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  
+ 
+  .container {
+    padding: 50px;
+    width: 360px;
+    background: #fff;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    margin: 15% auto;
+    text-align: center;
+    background-color: transparent;
+    justify-content: space-between;
+  
+  }
+   
+  .destination img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .travels {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  
+  .travel img {
+    width: 100%;
+    height: 300px;
+
+    object-fit: cover;
+  }
+  
+  .sessions {
+    background: url(https://images.unsplash.com/photo-1683695948101-fd31df8697b5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80) no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .user new {
+    background-color: aquamarine;
+  }

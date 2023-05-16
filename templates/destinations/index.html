@@ -1,45 +1,87 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Trails and Travels</h1>
 
 {% if current_user %}
-<h3>Welcome to Trails and Travels {{ current_user['first_name'] }}</h3>
-
+<body>
+<h1>Welcome to Trails and Travels {{ current_user['first_name'] }}</h1>
+<h2>Enjoy the beauty of the world</h2>
 <section class="controls">
   <form action="/sessions/delete" method="POST">
     <button>Log out</button>
   </form>
-
-  <a href="/destinations/new">Upload</a>
+ 
+  <a href="/destinations/new">Add Catagory</a>
 </section>
 
 <section class="destinations">
   {% for destination in destinations: %}
   <section class="destination">
     <header>
-      <h2>{{ destination['name'] }}</h2>
+      <div class="navbar"></div>
+      <nav>
+        <ul>
+          <li><a href="/travels"><img src="https://www.touropia.com/gfx/d/best-beaches-in-italy/cavoli_beach.jpg"/></image></br>Beaches</a></li>
 
-      <section class="controls">
-        <a href="/destinations/{{ destination['id'] }}/edit">Edit</a>
-        <a href="/travels">Select this type</a>
+          <li><a href="/iconics"><img src="https://cdn.pixabay.com/photo/2014/05/26/09/58/sydney-opera-house-354375_960_720.jpg"/></image></br>Iconic places</a></li>
 
-        <form action="/destinations/{{ destination['id'] }}/delete" method="POST">
-          <button>Delete</button>
+          <li><a href="/hills"><img src="https://www.travelcharacter.com/wp-content/uploads/2020/01/bled_solvenia.jpeg"/></image></br>Hills</a></li>
+
+          <li><a href=""><img src="https://img.traveltriangle.com/blog/wp-content/uploads/2021/09/Leaning-Tower-of-Pisa-400x231.jpg"/></image></br>Historical places</a></li>
+
+          <li><a href=""><img src="https://cdn.pixabay.com/photo/2016/09/19/22/46/lake-1681485_960_720.jpg"/></image></br>Mountains</a></li>
+
+          <li><a href=""><img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2017/12/angel-falls.jpg"/></image></br>Waterfalls</a></li>
+
+        </ul>
+      </nav>
+
+      <form action="/destinations/{{ destination['id'] }}/delete" method="POST">
+        <button>Delete</button>
+      </form>
+       
         </form>
-
-
-
       </section>
     </header>
-
-    <img src="{{ destination['image_url'] }}" alt="">
+  
   </section>
   {% endfor %}
 </section>
 {% else %}
-<a href="/users/new">Sign up</a>
-<a href="/sessions/new">Log in</a>
+<style>
+h1 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  align-self: center;
+  text-align: center;
+}
+body{
+  background-image: url(https://cdn.pixabay.com/photo/2016/03/04/19/36/beach-1236581_960_720.jpg);
+  background-size: cover;            
+  background-repeat: no-repeat; 
+  height: 7vh;
+  justify-content: center;
+  text-align: center;
+  
+}
+a {
+  background-color: rgb(162, 159, 159);
+  color: white;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+ 
+}
+a:hover {
+  background-color: #555;
+}
+a:hover {
+  cursor: pointer;
+}
+</style>
+<h1>Trails and Travels</h1>
+  <a href="/users/new">Sign up</a>
+  <a href="/sessions/new">Log in</a>
+</body>
 {% endif %}
 
 {% endblock %}

@@ -1,20 +1,56 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+  h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  body {
+    background-image: url(https://cdn.pixabay.com/photo/2020/03/28/08/38/lavender-4976080_960_720.jpg);
+    background-size: cover;            
+    background-repeat: no-repeat; 
+  }
+  input[type="text"],[type="password"] {
+    padding: 5px;
+    font-size: 18px;
+  }
+  .flex-input {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+  label {
+    flex-basis: 100px;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  button {
+    width: 100%;
+    font-size: 20px;
+    padding: 10px;
+    background-color: rgb(153, 151, 151);
+    margin: 20px 0;
+    border: none;
+  }
+</style>
+<body>
+  <div class="container">
+</body>
+
 <h1>Sign up</h1>
 <form action="/users" method="POST">
   <label for="">First Name:</label>
-  <input type="text" name="first_name">
+  <input type="text" name="first_name" placeholder="First Name">
 
   <label for="">Last Name:</label>
-  <input type="text" name="last_name">
+  <input type="text" name="last_name"  placeholder="Last Name">
 
   <label for="">Email:</label>
-  <input type="text" name="email">
+  <input type="text" name="email"  placeholder="E-mail">
 
   <label for="">Password:</label>
-  <input type="password" name="password">
+  <input type="password" name="password"  placeholder="First Name">
 
-  <button>Sign up</button>
+  <button>Sign in</button>
 </form>
 {% endblock %}
