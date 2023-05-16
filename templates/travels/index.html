@@ -24,7 +24,8 @@
         <form action="/travels/{{ travel['id'] }}/delete" method="POST">
           <button>Delete</button>
         </form>
-
+        
+        <p1>Description:</p1><p>{{ travel['description'] }}</p>
 
         <form action="/travels/{{ travel['id'] }}/likes" method="POST">
           <button>Like</button>
@@ -41,12 +42,13 @@
           <button>Recommendation</button>
         </form>
 
-      </section>
-    </header>
+        <img src="{{ travel['image_url'] }}" alt=""><br>
 
-    <img src="{{ travel['image_url'] }}" alt=""><br>
+      </section>
+
     
-    <p1>Description:</p1><p>{{ travel['description'] }}</p>
+    
+    
    
   </section>
   {% endfor %}

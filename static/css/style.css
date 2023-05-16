@@ -15,7 +15,9 @@
     margin-top: 1.5rem;
   }
 
-  
+  .destination header{
+    background-color: aquamarine;
+  }
  
   .container {
     padding: 50px;
